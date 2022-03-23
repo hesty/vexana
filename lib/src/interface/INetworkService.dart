@@ -27,5 +27,5 @@ abstract class INetworkManager {
   void addBaseHeader(MapEntry<String, String> key);
   void removeHeader(String key);
   void clearHeader();
-  Future<T?> sendPrimitive<T>(String path, {Map<String, dynamic>? headers});
+  Future<T?> sendPrimitive<T>(String path, {Map<String, dynamic>? headers, dynamic data});
 }
