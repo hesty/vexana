@@ -224,8 +224,9 @@ class NetworkManager with dio.DioMixin implements dio.Dio, INetworkManager {
   }
 
   @override
-  Future<T?> sendPrimitive<T>(String path, {Map<String, dynamic>? headers}) async {
-    final response = await dio.Dio().request<T>(options.baseUrl + path, options: dio.Options(headers: headers));
+  Future<T?> sendPrimitive<T>(String path, {Map<String, dynamic>? headers, dynamic data}) async {
+    final response =
+        await dio.Dio().post<T>(options.baseUrl + path, data: data, options: dio.Options(headers: headers));
     return response.data;
   }
 }
